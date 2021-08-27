@@ -1,0 +1,19 @@
+{% extends 'partials/flexible-content/component-base.twig' %}
+
+{% block component %}
+  <div class="statistics background--highlight vertical-padding">
+    <div class="container">
+      {% if component.section_heading %}
+        <h2 class="component__section-heading statistics__section-heading">{{ component.section_heading }}</h2>
+      {% endif %}
+      <div class="statistics__items">
+        {% for statistic in component.statistics %}
+          <figure class="statistics__group">
+            <span class="statistics__figure">{{ statistic.figure }}</span>
+            <span class="statistics__label">{{ statistic.label }}</span>
+          </figure>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

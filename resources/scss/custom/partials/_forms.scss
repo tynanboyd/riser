@@ -1,0 +1,28 @@
+.gform_wrapper {
+  input {
+    border: 1px solid $grey;
+    min-height: 70px;
+  }
+
+  .fileupload input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input[type=submit],
+  .gform_button {
+    @extend .button;
+    display: inline-block;
+    border: none;
+    padding: 0.7rem 2rem;
+    background: $color-highlight;
+    height: auto;
+    min-height: unset;
+    transition: transform 0.2s ease-in;
+
+    &:hover {
+      transform: rotate(-3deg);
+    }
+  }
+}

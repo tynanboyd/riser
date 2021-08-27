@@ -1,0 +1,27 @@
+{% extends 'partials/flexible-content/component-base.twig' %}
+
+{% block component %}
+<div class="logo-garden background--black color--white text-center vertical-padding">
+  <div class="container">
+    {% if component.section_heading %}
+      <h2 class="component__section-heading">{{ component.section_heading }}</h2>
+    {% endif %}
+    <div class="logo-garden__items">
+      {% for logo in component.logos %}
+      <div class="logo-garden__item-wrapper">
+        {% if logo.classification %}
+        <span class="logo-garden__classification">{{ logo.classification }}</span>
+        {% endif %}
+        {% if logo.logo_url %}
+          <a href="{{ logo.logo_url }}" target="_blank">
+        {% endif %}
+          <img class="logo-garden__item" src="{{ TimberImage(logo.logo_file)|resize(300) }}" alt="{{ logo.logo_file.alt }}">
+        {% if logo.logo_url %}
+          </a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

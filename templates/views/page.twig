@@ -1,0 +1,37 @@
+{% extends 'base.twig' %}
+
+{% block banner %}
+
+  {% if post.thumbnail %}
+  {% set image_lg = TimberImage(post.thumbnail)|resize(1500) %}
+  {% set image_sm = TimberImage(post.thumbnail)|resize(600) %}
+  {% set image_md = TimberImage(post.thumbnail)|resize(1000) %}
+
+    <div class="page-banner">
+      <img
+        class="page-banner__image"
+        src="{{ image_lg }}"
+        srcset="{{ image_sm }} 480w,
+                {{ image_md }} 800w,
+                {{ image_lg }} 1024w"
+        sizes="(max-width: 600px) 480px,
+        800px"
+        alt="{{ post.thumbnail.alt }}">
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block pageContent %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-9">
+        <h1 class="page-title">{{ post.title }}</h1>
+      </div>
+    </div>
+  </div>
+
+  {% for component in post.meta('sections') %}
+    {% include 'partials/flexible-content/' ~ component.acf_fc_layout ~ '.twig' with { 'component': component, 'component_index': loop.index } %}
+  {% endfor %}
+
+{% endblock %}

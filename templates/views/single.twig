@@ -1,0 +1,15 @@
+<main class="content container vertical-padding">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      {% if post.thumbnail %}
+        <img class="news-single__featured-image" src="{{ TimberImage(post.thumbnail)|resize(720) }}" alt="{{ post.thumbnail.alt }}">
+      {% endif %}
+      <h1 class="news-single__title">{{ post.title }}</h1>
+      <span class="news-single__date">{{ post.date }}</span>
+      <div class="text-content news-single__content">
+        {{ post.content }}
+      </div>
+      <a class="link--subtle link--back" href="{{ page_for_posts}}"><span class="link--back-arrow">←</span>Back to News</a>
+    </div>
+  </div>
+</main>

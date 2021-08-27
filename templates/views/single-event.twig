@@ -1,0 +1,70 @@
+{% set featured_image = TimberImage(post.thumbnail).src %}
+
+<div class="event-wrapper">
+
+  <header class="event-header">
+    <div class="event-header__image background-size-cover" style="background-image: url('{{ featured_image|resize(1200) }}');">
+      <h1 class="event-header__title">{{ post.title }}</h1>
+    </div>
+  </header>
+
+  <main class="event-content">
+    <div class="event-content__content">
+      {% if post.meta('performance_type') or post.meta('payment_link') or post.meta('closed_captioning') %}
+        <header class="event-content__header">
+          <div>
+            {% if post.meta('performance_type') %}
+              <span class="event-content__performance-type">{{ post.meta('performance_type') }}</span>
+            {% endif %}
+            {% if post.meta('closed_captioning') %}
+               <img class="event-content__closed-captions" src="{{ theme.link }}/public/images/icons/icon-closed-caption.svg" alt="Supports Closed Captioning">
+            {% endif %}
+            {% if post.meta('performance_times') %}
+              <ul class="event-content__times">
+              {% for time in post.meta('performance_times') %}
+                <li class="event-content__time no-bullet">
+                  {{ time.date_time|date("F d, h:i a") }}{% if time.end_time %}&ndash;{{ time.end_time }}{% endif %}
+                </li>
+              {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+          {% if post.meta('payment_link') %}
+            <a href="{{ post.meta('payment_link') }}" class="button event-content__purchase-button">Donate</a>
+          {% endif %}
+        </header>
+      {% endif %}
+      {% if post.content %}
+        <div class="event-content__wysiwyg page-content">
+          {% if post.meta('video_embed') %}
+            <div class="responsive-embed">
+             <pre>{{ post.meta('video_embed') }}</pre>
+            </div>
+          {% endif %}
+          {{ post.content }}
+
+        </div>
+      {% endif %}
+      {% if post.chat_embed and post.meta('chat_on') %}
+        <section class="chat d-none d-md-block">
+            <div class="chat__embed">
+              <a
+                data-toggle="collapse"
+                href="#chat"
+                role="button"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+                class="chat__toggle"
+              >
+                Toggle Chat
+              </a>
+              <div class="collapse show" id="chat">
+                {{ post.meta('chat_embed') }}
+              </div>
+            </div>
+          </section>
+      {% endif %}
+    </div>
+  </main>
+
+</div>

@@ -1,0 +1,8 @@
+<article class="news-post-card">
+	<a class="news-post-card__image-link" href="{{ post.link }}">
+		<img class="news-post-card__thumbnail" src="{{ TimberImage(post.thumbnail)|resize(600, 600) }}" alt="{{ post.thumbnail.alt }}">
+	</a>
+	<span class="news-post-card__date">{{ post.date }}</span>
+	<a class="news-post-card__title-link" href="{{ post.link }}"><h3 class="news-post-card__post-title">{{ post.title }}</h3></a>
+	<div class="news-post-card__excerpt">{{ post.preview }}</div>
+</article>

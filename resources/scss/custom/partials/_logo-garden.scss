@@ -1,0 +1,28 @@
+.logo-garden {
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  &__item {
+    max-width: 150px;
+    height: 60px;
+  }
+
+  &__item-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__classification {
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+}

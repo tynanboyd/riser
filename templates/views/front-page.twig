@@ -1,0 +1,59 @@
+<section class="hero text-center flex-center"
+  {% if post.meta('banner_background_image') %}style="background-image:url('{{ TimberImage(post.meta('banner_background_image'))|resize(1600) }}"{% endif %}
+  >
+  <h1 class="hero__heading hero__heading--large fit-text">{{ post.meta('banner_title') }}</h1>
+</section>
+
+<section class="introduction container vertical-padding text-content">
+  <div class="row justify-content-between">
+    <div class="col-sm-12 col-md-4 col-lg-2 mb-4">
+      <h2>{{ post.meta('introduction_heading') }}</h2>
+      <a href="{{  post.meta('introduction_button').url }}" class="button">{{  post.meta('introduction_button').title }}</a>
+    </div>
+    <div class="col-sm-12 col-md-8 col-lg-7">
+      {{ post.meta('introduction_content') }}
+    </div>
+  </div>
+  <hr class="theme-divider" />
+</section>
+
+{% if post.meta('news_posts') %}
+  <section class="home-page-news-feed container vertical-padding">
+    <div class="row justify-content-between">
+      <div class="col-sm-12 col-md-4 col-lg-2">
+        <h2>{{ post.meta('news_section_heading') }}</h2>
+        <a class="link--subtle" href="{{ page_for_posts }}">View All</a>
+      </div>
+      <div class="col-sm-12 col-md-8 col-lg-7">
+        <div class="home-page-news-feed__posts-wrapper news-posts-wrapper">
+          {% for item in post.meta('news_posts') %}
+            {% set post = item.news_post %}
+            {% include 'partials/news-post-card.twig' %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <hr class="theme-divider" />
+  </section>
+{% endif %}
+
+{% if options.supporter_logos %}
+  <section class="supporters background--color-darkmode">
+    <div class="container">
+      <div class="supporters__grid flex-center">
+        {% for supporter in options.supporter_logos %}
+          <div class="supporters__item">
+            {% if supporter.link %}
+              <a href="{{ supporter.link }}">
+            {% endif %}
+            <img class="supporters__logo" src="{{ Image(supporter.logo) }}" alt="{{ supporter.logo.alt }}">
+            {% if supporter.link %}
+              </a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+

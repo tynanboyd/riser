@@ -1,0 +1,15 @@
+{% block banner %}
+{% endblock %}
+
+<main class="page-content">
+  {% block pageContent %}
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10">
+          <h1 class="page-title">{{ post.title }}</h1>
+          {{ post.content }}
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+</main>

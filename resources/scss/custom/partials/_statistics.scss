@@ -1,0 +1,46 @@
+.statistics {
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+
+    @include MQ(M) {
+      gap: 50px;
+    }
+  }
+
+  &__section-heading {
+    text-align: center;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  &__figure {
+    font-weight: bold;
+    font-size: 3rem;
+    line-height: 1;
+    position: relative;
+    z-index: 2;
+
+    @include MQ(M) {
+      font-size: 5rem;
+    }
+
+    &:before {
+     @extend .theme-effect;
+     background-color: $white;
+     opacity: 0.5;
+     z-index: -1;
+    }
+  }
+
+  &__label {
+
+  }
+}

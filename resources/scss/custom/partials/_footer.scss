@@ -1,0 +1,98 @@
+.site-footer {
+  background: $black;
+  color: $white;
+  padding: 0 0 24px 0;
+
+  &__bottom {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &__link {
+    display: block;
+    color: white;
+  }
+
+  &__heading {
+    text-transform: uppercase;
+    color: white;
+  }
+
+  &__social-links {
+    display: flex;
+  }
+
+  &__social-link {
+    margin-right: 10px;
+  }
+
+  &__menu {
+    padding-left: 0;
+  }
+
+  &__menu-link {
+    color: white;
+
+    &:hover {
+      color: $color-highlight;
+      text-decoration: none;
+    }
+  }
+
+  [class^="col"] {
+    margin-bottom: 1rem;
+
+    @include MQ(L) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__logos {
+    padding: 2rem 0;
+
+    .logo-garden__item {
+      width: 150px;
+      max-height: 60px;
+    }
+  }
+
+  &__logo-group {
+    margin-bottom: 3rem;
+    align-items: center;
+    justify-content: flex-start !important;
+  }
+
+  &__logo-group-title {
+    font-size: 1rem;
+  }
+
+  &__land-acknowledgement {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    color: $white;
+    border-top: 1px solid transparentize($white, 0.7);
+    border-bottom: 1px solid transparentize($white, 0.7);
+
+    @include MQ(M) {
+      color: darken(white, 20%);
+      transition: color 0.3s $cubic-bezier;
+    }
+
+
+    &:hover {
+      color: white;
+    }
+
+    &__text,
+    p {
+      font-size: 0.85rem;
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+

@@ -1,0 +1,18 @@
+{% extends 'base.twig' %}
+
+{% block pageContent %}
+
+  <div class="container news-listing">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10">
+          <h1 class="page-title mb-2">News</h1>
+          <div class="news-posts-wrapper">
+            {% for post in posts %}
+              {% include 'partials/news-post-card.twig' %}
+            {% endfor %}
+          </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

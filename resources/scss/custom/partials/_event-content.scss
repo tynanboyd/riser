@@ -1,0 +1,55 @@
+.event-content {
+  flex: 1;
+  padding: 1rem;
+
+  @include MQ(M) {
+    padding: 2rem 4rem 2rem;
+  }
+
+  &__header {
+    padding: 2rem;
+    margin-bottom: 3rem;
+    background-color: #EFEFEF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__purchase-button {
+    flex: 0 1 auto;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  &__content {
+    max-width: 600px;
+
+    &--frontpage {
+      max-width: none;
+    }
+  }
+
+  &__wysiwyg {
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 3px 3px 1px $color-highlight;
+    border-right: 1px solid darken($color-highlight, 5%);
+    border-bottom: 1px solid darken($color-highlight, 5%);
+  }
+
+  &__times {
+    padding: 0;
+    margin: 0;
+  }
+
+  &__performance-type {
+    font-size: 15px;
+    font-weight: normal;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 0.85rem;
+    padding: 6px;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+}

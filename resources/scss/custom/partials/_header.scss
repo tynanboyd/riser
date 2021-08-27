@@ -1,0 +1,41 @@
+.site-header {
+  background-color: black;
+  padding: 10px 24px;
+
+  @include MQ(M) {
+    padding: 20px 48px;
+  }
+
+  &__logo {
+    color: $white;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease-in;
+    position: relative;
+    z-index: 2;
+
+    &:before {
+     @extend .theme-effect;
+     z-index: -1;
+     left: -5%;
+     top: -1%;
+    }
+
+    &:hover {
+      &:before {
+        opacity: 1;
+      }
+    }
+
+    @include MQ(M) {
+      font-size: 40px;
+      letter-spacing: 2rem;
+      &:hover {
+        text-decoration: none;
+        letter-spacing: 2.2rem;
+      }
+    }
+  }
+}
